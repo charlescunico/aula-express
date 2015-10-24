@@ -20,9 +20,9 @@ Controller = {
 		});
 	},
 	retrieve: function(req, res){
-		var Beer = Model, query = {};
+		var query = {};
 
-		Beer.find(query, function(err, data) {
+		Model.find(query, function(err, data) {
 			if (err) {
 				console.log('Erro: ', err);
 				msg = err;
@@ -34,9 +34,9 @@ Controller = {
 		});
 	},
 	get: function(req, res){
-		var Beer = Model, query = {_id: req.params.id};
+		var query = {_id: req.params.id};
 
-		Beer.findOne(query, function(err, data) {
+		Model.findOne(query, function(err, data) {
 			if (err) {
 				console.log('Erro: ', err);
 				msg = err;
@@ -48,7 +48,7 @@ Controller = {
 		});
 	},
 	update: function(req, res){
-		var Beer = Model, query = {_id: req.params.id};
+		var query = {_id: req.params.id};
 
 		var mod = req.body;
 
@@ -57,7 +57,7 @@ Controller = {
 			multi: true
 		}
 
-		Beer.update(query, mod, optional, function(err, data) {
+		Model.update(query, mod, optional, function(err, data) {
 			if (err) {
 				console.log('Erro: ', err);
 				msg = err;
@@ -69,10 +69,10 @@ Controller = {
 		});
 	},
 	delete: function(req, res){
-		var Beer = Model, query = {name: /brahma/i};
+		var query = {_id: req.params.id};
 
 		// É multi: true CUIDADO!
-		Beer.remove(query, function(err, data) {
+		Model.remove(query, function(err, data) {
 			if (err) {
 				console.log(err);
 				msg = err;
