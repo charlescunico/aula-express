@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  ul
+    li Id: #{beers._id}
+    li Nome: #{beers.name}
+    li Preço: #{beers.price}

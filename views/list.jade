@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  ul
+  for beer in beers
+    li
+      a(href='/beers/#{beer._id}')
+        | #{beer.name} - #{beer.price}

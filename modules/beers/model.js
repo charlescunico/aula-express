@@ -22,6 +22,7 @@ var json_schema = {
 	name: {type: String, default: ''},
 	description: {type: String, default: ''},
 	alchool: {type: Number, min: 0},
+	price: {type: Number, min: 0},
 	category: {type: String, default: ''},
 	create_at: {type: Date, default: Date.now}
 };
