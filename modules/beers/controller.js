@@ -1,16 +1,13 @@
 var Model = require('./model');
 
+var msg = '';
+
 Controller = {
 	create: function(req, res){
-		var dados = {
-			name: 'Skol',
-			description: 'Mijo de rato',
-			alchool: 4.5,
-			price: 3.0,
-			category: 'pilsen'
-		}, 
-		model = new Model(dados),
-		msg = '';
+		var dados = req.body;
+
+		model = new Model(dados);
+
 		model.save(function(err, data) {
 			if (err) {
 				console.log('Erro: ', err);
