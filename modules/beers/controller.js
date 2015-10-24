@@ -33,15 +33,24 @@ Controller = {
 			res.json(msg);
 		});
 	},
-	update: function(req, res){
-		var Beer = Model, query = {name: /skol/i};
+	get: function(req, res){
+		var Beer = Model, query = {_id: req.params.id};
 
-		var mod = {
-			name: 'Brahma',
-			alchool: 4,
-			price: 6,
-			category: 'pilsen'
-		};
+		Beer.findOne(query, function(err, data) {
+			if (err) {
+				console.log('Erro: ', err);
+				msg = err;
+			} else {
+				console.log('Listagem: ', data);
+				msg = data;
+			}
+			res.json(msg);
+		});
+	},
+	update: function(req, res){
+		var Beer = Model, query = {_id: req.params.id};
+
+		var mod = req.body;
 
 		var optional = {
 			upsert: false,
